@@ -1,0 +1,33 @@
+---
+- name: Deploy ArgoCD to k3s cluster
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Ensure kubeconfig exists
+      stat:
+        path: ../kubeconfig
+      register: kubeconfig_stat
+
+    - name: Fail if kubeconfig is missing
+      fail:
+        msg: "kubeconfig not found. Have you run bootstrap.yml first?"
+      when: not kubeconfig_stat.stat.exists
+
+    - name: Create argocd namespace
+      command: kubectl --kubeconfig=../kubeconfig create namespace argocd
+      register: create_ns
+      failed_when: 
+        - create_ns.rc != 0
+        - '"AlreadyExists" not in create_ns.stderr'
+      changed_when: create_ns.rc == 0
+
+    - name: Apply ArgoCD install manifests
+      command: kubectl --kubeconfig=../kubeconfig apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+      register: apply_argocd
+      changed_when: '"configured" in apply_argocd.stdout or "created" in apply_argocd.stdout'
+
+    - name: Wait for ArgoCD server to be ready
+      command: kubectl --kubeconfig=../kubeconfig wait --for=condition=available deployment/argocd-server -n argocd --timeout=300s
+      register: wait_argocd
+      changed_when: false

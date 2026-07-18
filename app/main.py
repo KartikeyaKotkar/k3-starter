@@ -1,6 +1,11 @@
 from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="k3s-starter Sample App")
+
+# Instrument the app to expose /metrics
+Instrumentator().instrument(app).expose(app)
+
 
 @app.get("/")
 def read_root():

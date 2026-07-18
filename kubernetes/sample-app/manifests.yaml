@@ -51,7 +51,8 @@ spec:
   selector:
     app: fastapi-sample
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 8000
   type: ClusterIP
@@ -75,3 +76,20 @@ spec:
             name: fastapi-service
             port:
               number: 80
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: fastapi-monitor
+  labels:
+    app: fastapi-sample
+spec:
+  selector:
+    matchLabels:
+      app: fastapi-sample
+  endpoints:
+  - port: http
+    interval: 15s
+    path: /metrics
+

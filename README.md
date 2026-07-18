@@ -62,8 +62,8 @@ Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 - [x] Manually deploy and verify path routing through Traefik ingress
 
 ### Phase 5: GitOps Setup (ArgoCD)
-- [ ] Deploy ArgoCD to the k3s cluster
-- [ ] Transition FastAPI manifests to ArgoCD tracking
+- [x] Deploy ArgoCD to the k3s cluster
+- [x] Transition FastAPI manifests to ArgoCD tracking
 - [ ] Verify automatic synchronization on git commit
 
 ### Phase 6: Metrics Observability
