@@ -41,20 +41,20 @@ graph TD
 Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 
 ### Phase 1: Infrastructure Provisioning
-- [ ] Set up Terraform configurations for EC2 and VPC
-- [ ] Configure remote state with S3 and DynamoDB
-- [ ] Parameterize variables (instance type, region, key pair)
-- [ ] Document clean-up procedures (`terraform destroy`)
+- [x] Set up Terraform configurations for EC2 and VPC
+- [x] Configure remote state with S3 and DynamoDB
+- [x] Parameterize variables (instance type, region, key pair)
+- [x] Document clean-up procedures (`terraform destroy`)
 
 ### Phase 2: k3s Installation
-- [ ] Write Ansible playbook to bootstrap k3s on provisioned hosts
-- [ ] Ensure playbook execution is idempotent
-- [ ] Automatically pull kubeconfig back to the local development machine
-- [ ] Document kubectl verification commands
+- [x] Write Ansible playbook to bootstrap k3s on provisioned hosts
+- [x] Ensure playbook execution is idempotent
+- [x] Automatically pull kubeconfig back to the local development machine
+- [x] Document kubectl verification commands
 
 ### Phase 3: CI/CD Validation
-- [ ] Add GitHub Actions workflow for linting Terraform and Ansible code
-- [ ] Add validation to run `terraform plan` on Pull Requests
+- [x] Add GitHub Actions workflow for linting Terraform and Ansible code
+- [x] Add validation to run `terraform plan` on Pull Requests
 
 ### Phase 4: Sample FastAPI Deployment
 - [ ] Containerize and publish a simple FastAPI application
