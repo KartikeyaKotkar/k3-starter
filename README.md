@@ -64,12 +64,13 @@ Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 ### Phase 5: GitOps Setup (ArgoCD)
 - [x] Deploy ArgoCD to the k3s cluster
 - [x] Transition FastAPI manifests to ArgoCD tracking
-- [ ] Verify automatic synchronization on git commit
+- [x] Verify automatic synchronization on git commit
 
 ### Phase 6: Metrics Observability
-- [ ] Deploy `kube-prometheus-stack` via ArgoCD
-- [ ] Expose Grafana dashboards for node and cluster metrics
-- [ ] Create a custom Grafana dashboard tracking FastAPI request/error rates
+- [x] Integrate `prometheus-fastapi-instrumentator` into the sample app
+- [x] Deploy `kube-prometheus-stack` via ArgoCD
+- [x] Expose Grafana externally via Traefik ingress
+- [x] Create and auto-provision a custom Grafana dashboard for FastAPI RED metrics
 
 ### Phase 7: Log Aggregation
 - [ ] Deploy Grafana Loki and Promtail/Alloy via ArgoCD
