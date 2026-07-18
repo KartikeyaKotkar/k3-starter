@@ -57,9 +57,9 @@ Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 - [x] Add validation to run `terraform plan` on Pull Requests
 
 ### Phase 4: Sample FastAPI Deployment
-- [ ] Containerize and publish a simple FastAPI application
-- [ ] Write Kubernetes manifests (Deployment, Service, Ingress)
-- [ ] Manually deploy and verify path routing through Traefik ingress
+- [x] Containerize and publish a simple FastAPI application
+- [x] Write Kubernetes manifests (Deployment, Service, Ingress)
+- [x] Manually deploy and verify path routing through Traefik ingress
 
 ### Phase 5: GitOps Setup (ArgoCD)
 - [ ] Deploy ArgoCD to the k3s cluster
