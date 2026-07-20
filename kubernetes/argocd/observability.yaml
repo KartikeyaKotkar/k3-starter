@@ -22,6 +22,10 @@ spec:
               enabled: true
               label: grafana_dashboard
               labelValue: "1"
+          additionalDataSources:
+            - name: Loki
+              type: loki
+              url: http://loki-stack.observability.svc.cluster.local:3100
         prometheus:
           prometheusSpec:
             serviceMonitorSelectorNilUsesHelmValues: false

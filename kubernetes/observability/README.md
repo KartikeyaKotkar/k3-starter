@@ -24,6 +24,26 @@ Grafana is exposed via an Ingress at `grafana.local`.
    - **Username:** `admin`
    - **Password:** `prom-operator`
 
+## Logging (Loki)
+
+Loki and Promtail are deployed to automatically collect logs from all containers. Because Grafana is pre-configured with Loki as a data source, you can query logs immediately.
+
+### Querying Logs in Grafana
+
+1. Log in to Grafana and navigate to **Explore** (the compass icon in the sidebar).
+2. Ensure the Data Source in the top left is set to **Loki**.
+3. You can use **LogQL** to search and filter logs.
+
+**Example: Get all logs from the FastAPI app**
+```logql
+{app="fastapi-sample"}
+```
+
+**Example: Find errors in the FastAPI app**
+```logql
+{app="fastapi-sample"} |= "error"
+```
+
 ## What we are NOT alerting on yet
 
 > [!WARNING]

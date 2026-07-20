@@ -36,9 +36,13 @@ graph TD
 ## Project Status
 
 > [!NOTE]
-> This project is currently in the bootstrapping phase. The directories (`terraform/`, `ansible/`, `bootstrap/`, `kubernetes/`, `scripts/`, `docs/`) have been laid out, but no implementation code is active yet.
+> This project has successfully completed its bootstrapping and development roadmap! The cluster is fully automated from infrastructure provisioning to application observability.
 
-Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
+For full documentation, please refer to:
+- [Getting Started Guide](docs/getting-started.md)
+- [Known Limitations](docs/limitations.md)
+
+Below is the completed implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 
 ### Phase 1: Infrastructure Provisioning
 - [x] Set up Terraform configurations for EC2 and VPC
@@ -73,9 +77,10 @@ Below is the implementation checklist aligned with [ROADMAP.md](ROADMAP.md):
 - [x] Create and auto-provision a custom Grafana dashboard for FastAPI RED metrics
 
 ### Phase 7: Log Aggregation
-- [ ] Deploy Grafana Loki and Promtail/Alloy via ArgoCD
-- [ ] Configure log parsing and query sample logs within Grafana
+- [x] Deploy Grafana Loki and Promtail/Alloy via ArgoCD
+- [x] Configure log parsing and query sample logs within Grafana
 
 ### Phase 8: Final Review & Docs
-- [ ] Create a robust getting-started guide under `docs/`
-- [ ] Document known limitations (e.g., single-node architecture, no TLS/cert-manager)
+- [x] Create a robust getting-started guide under `docs/`
+- [x] Document known limitations (e.g., single-node architecture, no TLS/cert-manager)
+- [x] Update architecture diagrams and link to CineMate repository (if applicable)
